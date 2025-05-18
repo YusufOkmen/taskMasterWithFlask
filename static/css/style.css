@@ -3,3 +3,26 @@ body
     margin: 0;
     font-family: sans-serif;
 }
+
+.content
+{
+    margin: 0 auto;
+}
+
+.theHeader
+{
+    text-align: center;
+}
+
+.theTable
+{
+    margin: 0 auto;
+}
+
+.theForm
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
