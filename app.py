@@ -20,6 +20,7 @@ with app.app_context():
 
 @app.route("/", methods=["POST", "GET"])
 
+# Task Master main page
 def index():
     if request.method == "POST":
         # Name of the content
@@ -35,10 +36,10 @@ def index():
             return "There was an issue adding your task"
         
     else:
-        tasks = Todo.query.order_by(Todo.dateCreated).all()
+        tasks = Todo.query.filter_by(completed=0).order_by(Todo.dateCreated).all()
         return render_template("index.html", tasks=tasks)
 
-
+# Delete tasks
 @app.route("/delete/<int:id>")
 def delete(id):
     taskToDelete = Todo.query.get_or_404(id)
@@ -50,7 +51,7 @@ def delete(id):
     except: 
         return "There was a problem deleting that task!"
 
-
+# Update tasks
 @app.route("/update/<int:id>", methods=["GET", "POST"])
 def update(id):
     taskToUpdate = Todo.query.get_or_404(id)
@@ -65,6 +66,27 @@ def update(id):
             return "There was an issue updating your task!"
     else:
         return render_template("update.html", task=taskToUpdate)
+
+# Turn checkboxes on and off
+@app.route("/complete/<int:id>", methods=["POST"])
+def complete(id):
+    completedTask = Todo.query.get_or_404(id)
+    if completedTask.completed == 1:
+        completedTask.completed = 0
+    else:
+        completedTask.completed = 1
+
+    try:
+        db.session.commit()
+        return redirect("/")
+    except:
+        return "There was an issue updating the task status"
+    
+# Show the completed tasks
+@app.route("/completedTasks")
+def completed_tasks():
+    tasks = Todo.query.filter_by(completed=1).order_by(Todo.dateCreated).all()
+    return render_template("completedTasks.html", tasks=tasks)
 
 
 if __name__ == "__main__":

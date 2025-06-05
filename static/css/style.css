@@ -59,16 +59,27 @@ body
 .tableButtonUpdate
 {
     color: white;
-    background-color: rgb(156, 156, 12)
+    background-color: rgb(156, 156, 12);
+    border: none;
+    border-radius: 5px;
+
 }
 
 .tableButtonDelete
 {
     color: white;
     background-color: rgb(158, 20, 20);
+    border: none;
+    border-radius: 5px;
 }
 
 .addTask
 {
     background-color: #a7b1b9;
+}
+
+.completedTasks
+{
+    text-align: center;
+    margin-top: 3%;
 }

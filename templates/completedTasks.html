@@ -9,7 +9,7 @@
 <!-- Body -->
 {% block body %}
 <div class="content">
-    <h1 class="theHeader">TASK MASTER</h1>
+    <h1 class="theHeader">Completed Tasks</h1>
     {% if tasks|length < 1%}
     <h4 class="theHeader">There are no tasks. Create one below!</h4>
     {% else %}
@@ -25,7 +25,7 @@
             <tr>
                 <td class="tableData">{{ task.content }}</td>
                 <td class="tableData">{{ task.dateCreated }}</td>
-                <td class="tableData">
+                <td class="tableData">  
                     <a href="/delete/{{task.id}}"><button class="tableButtonDelete">Delete</button></a> 
                     <a href="/update/{{task.id}}"><button class="tableButtonUpdate">Update</button></a>
                 </td>
@@ -47,8 +47,8 @@
     </div>
 
     <div class="completedTasks">
-        <a href="{{ url_for('completed_tasks') }}">
-            <button class="completedTasksBtn">Completed Tasks</button>
+        <a href="{{ url_for('index') }}">
+            <button class="completedTasksBtn">Go Back</button>
         </a>
     </div>
 </div>
