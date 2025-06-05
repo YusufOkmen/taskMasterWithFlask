@@ -1,12 +1,27 @@
+html
+{
+    height: 100% !important;
+    background-color: #cdcec9   
+}
+
 body 
 {
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    align-items: center;     /* vertical centering */
     margin: 0;
     font-family: sans-serif;
+    height: 100% !important;
+    background-color: #a7b1b9 !important;
 }
 
 .content
 {
     margin: 0 auto;
+    background-color: #c9dee7;
+    max-width: 50% !important;
+    border-radius: 10px;
+    padding: 10px;    
 }
 
 .theHeader
@@ -25,4 +40,35 @@ body
     justify-content: center;
     align-items: center;
     margin-top: 10px;
+}
+
+.tableHeaders
+{
+    text-align: center !important;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.tableData
+{
+    text-align: center !important;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.tableButtonUpdate
+{
+    color: white;
+    background-color: rgb(156, 156, 12)
+}
+
+.tableButtonDelete
+{
+    color: white;
+    background-color: rgb(158, 20, 20);
+}
+
+.addTask
+{
+    background-color: #a7b1b9;
 }
